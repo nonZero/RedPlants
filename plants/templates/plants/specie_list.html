@@ -1,10 +1,27 @@
-:-)
-<ul>
-    {% for o in object_list %}
-      <li>
-          <a href="{% url 'specie' o.id %}">
-            {{o}}
-          </a>
-      </li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-xs-12">
+
+      <h1>
+          All Species
+      </h1>
+
+      <ul class="list-group">
+          {% for o in object_list %}
+            <li class="list-group-item">
+                <a href="{% url 'specie' o.id %}">
+                  {{o}}
+                </a>
+            </li>
+          {% endfor %}
+      </ul>
+    </div>
+</div>
+{% endblock %}
