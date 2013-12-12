@@ -9,6 +9,10 @@
 <div class="row">
     <div class="col-xs-12">
 
+    <ol class="breadcrumb">
+      <li><a href="{% url 'species' %}">Home</a></li>
+    </ol>
+
     <h1>
         {{object.name}}
         {{object.common_name}}
@@ -19,7 +23,11 @@
         <dd>{{object.family}}</dd>
     
         <dt>IUCN Level</dt>
-        <dd>{{object.get_iucn_level_display}}</dd>
+        <dd>
+            <span class="text-{{object.iucn_label}}">
+                {{object.get_iucn_level_display|default:'No Info'}}
+            </span>
+        </dd>
     
         <dt>Details</dt>
         <dd>{{object.details|linebreaks}}</dd>

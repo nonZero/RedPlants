@@ -16,7 +16,7 @@
       <ul class="list-group">
           {% for o in object_list %}
             <li class="list-group-item">
-                <a href="{% url 'specie' o.id %}">
+                <a href="{{o.get_absolute_url}}">
                   {{o}}
                 </a>
             </li>

@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
@@ -38,3 +39,16 @@ class Specie(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def iucn_label(self):
+
+        if self.iucn_level is None:
+            return "muted"
+
+        if self.iucn_level > IUCNLevel.CR:
+            return "danger"
+
+        return "info"
+
+    def get_absolute_url(self):
+        return reverse("specie", args=(self.id,))
