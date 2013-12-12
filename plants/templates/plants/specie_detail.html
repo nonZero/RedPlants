@@ -1,0 +1,17 @@
+<h1>
+    {{object.name}}
+    {{object.common_name}}
+</h1>
+
+<dl>
+    <dt>Family</dt>
+    <dd>{{object.family}}</dd>
+
+    <dt>IUCN Level</dt>
+    <dd>{{object.get_iucn_level_display}}</dd>
+
+    <dt>Details</dt>
+    <dd>{{object.details|linebreaks}}</dd>
+
+</dl>
+

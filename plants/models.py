@@ -4,6 +4,9 @@ from django.db import models
 class Family(models.Model):
     name = models.CharField(max_length=200, db_index=True)
 
+    def __unicode__(self):
+        return self.name
+
 
 class IUCNLevel(object):
     EX = 6
@@ -32,3 +35,6 @@ class Specie(models.Model):
     iucn_level = models.IntegerField(choices=IUCNLevel.choices, null=True,
                                      blank=True, db_index=True)
     details = models.TextField(null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name

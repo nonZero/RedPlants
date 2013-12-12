@@ -23,6 +23,7 @@ SECRET_KEY = '1hip@m2m-!&ec^=ot5hz0b-2y9yo$$qbsy01+$#giuo^9z$e@q'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
+TEMPLATE_STRING_IF_INVALID = "@@@"
 
 ALLOWED_HOSTS = []
 
@@ -66,7 +67,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'he'
 
 TIME_ZONE = 'UTC'
 
