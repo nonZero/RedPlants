@@ -6,7 +6,6 @@ from obs import models
 
 class CreateObservationView(CreateView):
     model = models.Observation
-
     success_url = reverse_lazy('obs')
 
 
