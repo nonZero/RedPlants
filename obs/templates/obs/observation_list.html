@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Observations
+{% endblock %}
+
+{% block content %}
+
+
+    <ul>
+
+        {% for o in object_list %}
+            <li>
+                {{o.specie}} {{o.lat}}:{{o.lon}} at {{o.created_at}} by {{o.user}}
+            </li>
+        {% endfor %}
+
+    </ul>
+
+</form>
+{% endblock %}

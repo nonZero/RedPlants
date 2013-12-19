@@ -3,6 +3,7 @@ from django.conf.urls import patterns, include, url
 from plants import views
 
 from django.contrib import admin
+from obs.views import CreateObservationView, ObservationListView
 admin.autodiscover()
 
 
@@ -11,6 +12,14 @@ urlpatterns = patterns('',
     url(r'^specie/(\d+)/$', views.specie, name="specie"),
     url(r'^like/(\d+)/$', views.like_specie, name="like"),
     url(r'^unlike/(\d+)/$', views.unlike_specie, name="unlike"),
+
+
+    url(r'^obs/$', ObservationListView.as_view(),
+        name="obs"),
+
+    url(r'^post-observation/$', CreateObservationView.as_view(),
+        name="post_ob"),
+
 
     url(r'^accounts/login/$', 'django.contrib.auth.views.login',
      {'template_name': 'login.html'}, name='login'),

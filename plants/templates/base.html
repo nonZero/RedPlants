@@ -29,6 +29,8 @@
             {% if user.id %}
               {{user.username}}
               <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+              <a href="{% url 'post_ob' %}">Add Observation</a>
+              
             {% else %}
               <a href="{% url 'login' %}">login</a>
             {% endif %}
