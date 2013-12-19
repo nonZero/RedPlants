@@ -1,5 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.conf import settings
 
 
 class Family(models.Model):
@@ -52,3 +53,14 @@ class Specie(models.Model):
 
     def get_absolute_url(self):
         return reverse("specie", args=(self.id,))
+
+
+class UserSpecie(models.Model):
+    specie = models.ForeignKey(Specie, related_name='users')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = (
+                           ('specie', 'user'),
+                           )

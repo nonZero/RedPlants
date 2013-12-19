@@ -24,6 +24,15 @@
   <body>
 
     <div class="container">
+        
+        <p>
+            {% if user.id %}
+              {{user.username}}
+              <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+            {% else %}
+              <a href="{% url 'login' %}">login</a>
+            {% endif %}
+        </p>
 
 
         {% block content %}

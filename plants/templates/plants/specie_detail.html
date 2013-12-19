@@ -32,7 +32,24 @@
         <dt>Details</dt>
         <dd>{{object.details|linebreaks}}</dd>
     
+        <dt>Likes</dt>
+        <dd>{{likes}}</dd>
+    
     </dl>
+
+
+    {% if user_like %}
+        <form method="post" action="{% url 'unlike' object.id %}">
+            {% csrf_token %}
+            <button class="btn btn-default">Undo Like</button>
+        </form>
+    {% else %}
+        <form method="post" action="{% url 'like' object.id %}">
+            {% csrf_token %}
+            <button class="btn btn-success">Like!</button>
+        </form>
+    {% endif %}
+
     </div>
 </div>
 

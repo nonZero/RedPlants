@@ -19,6 +19,7 @@
                 <a href="{{o.get_absolute_url}}">
                   {{o}}
                 </a>
+                <span class="badge">{{o.users.count|default:''}}</span>
             </li>
           {% endfor %}
       </ul>
