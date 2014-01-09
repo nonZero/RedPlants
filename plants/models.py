@@ -1,13 +1,18 @@
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 
 class Family(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
+    name = models.CharField(_("name"), max_length=200, db_index=True)
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = _("family")
+        verbose_name_plural = _("families")
 
 
 class IUCNLevel(object):

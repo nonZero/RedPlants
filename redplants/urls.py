@@ -1,13 +1,14 @@
 from django.conf.urls import patterns, include, url
-
-from plants import views
-
+from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from obs.views import CreateObservationView, ObservationListView
+from plants import views
+
+
 admin.autodiscover()
 
 
-urlpatterns = patterns('',
+urlpatterns = i18n_patterns('',
     url(r'^$', views.specie_list, name='species'),
     url(r'^specie/(\d+)/$', views.specie, name="specie"),
     url(r'^like/(\d+)/$', views.like_specie, name="like"),
@@ -26,12 +27,6 @@ urlpatterns = patterns('',
 
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', 
      {'next_page': '/'}),
-
-
-
-
-
-
 
     url(r'^admin/', include(admin.site.urls)),
 )
