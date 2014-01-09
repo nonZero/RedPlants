@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.conf.urls.i18n import i18n_patterns
 
 from plants import views
 
@@ -7,7 +8,7 @@ from obs.views import CreateObservationView, ObservationListView
 admin.autodiscover()
 
 
-urlpatterns = patterns('',
+urlpatterns = i18n_patterns('',
     url(r'^$', views.specie_list, name='species'),
     url(r'^specie/(\d+)/$', views.specie, name="specie"),
     url(r'^like/(\d+)/$', views.like_specie, name="like"),

@@ -1,13 +1,18 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
 
 
 class Family(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
+    name = models.CharField(_("name"), max_length=200, db_index=True)
 
     def __unicode__(self):
         return self.name
+
+    class Meta:
+        verbose_name = _('family')
+        verbose_name_plural = _('families')
 
 
 class IUCNLevel(object):
@@ -32,11 +37,11 @@ class IUCNLevel(object):
 
 class Specie(models.Model):
     family = models.ForeignKey(Family)
-    name = models.CharField(max_length=200, unique=True, db_index=True)
-    common_name = models.CharField(max_length=200, db_index=True)
-    iucn_level = models.IntegerField(choices=IUCNLevel.choices, null=True,
+    name = models.CharField(_("name"), max_length=200, unique=True, db_index=True)
+    common_name = models.CharField(_("common name"), max_length=200, db_index=True)
+    iucn_level = models.IntegerField(_("IUCN level"),choices=IUCNLevel.choices, null=True,
                                      blank=True, db_index=True)
-    details = models.TextField(null=True, blank=True)
+    details = models.TextField(_("details"), null=True, blank=True)
 
     def __unicode__(self):
         return self.name
@@ -53,6 +58,10 @@ class Specie(models.Model):
 
     def get_absolute_url(self):
         return reverse("specie", args=(self.id,))
+
+    class Meta:
+        verbose_name = _('specie')
+        verbose_name_plural = _('species')
 
 
 class UserSpecie(models.Model):
