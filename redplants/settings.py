@@ -77,6 +77,7 @@ LANGUAGES = (
   ('en', _('English')),
   ('he', _('Hebrew')),
 )
+)
 
 TIME_ZONE = 'UTC'
 

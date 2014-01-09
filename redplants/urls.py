@@ -28,11 +28,5 @@ urlpatterns = i18n_patterns('',
     (r'^accounts/logout/$', 'django.contrib.auth.views.logout', 
      {'next_page': '/'}),
 
-
-
-
-
-
-
     url(r'^admin/', include(admin.site.urls)),
 )
